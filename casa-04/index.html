@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos</title>
+
+    <style>
+        body {
+            background-color: rgb(104, 165, 219);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Verdana, Geneva, Tahoma, sans-serif
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        li {
+            list-style-type: none;
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            margin: 20px 40px 20px 0;
+            max-width: 400px;
+        }
+
+        img {
+            width: 80px;
+            border-radius: 50%;
+        }
+
+        .nome {
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Contatos</h1>
+
+        <ul class="contatos">
+            <li>
+                <img src="">
+                <div class="informacao-contato">
+                    <div class="nome"></div>
+                    <div class="descricao"></div>
+                </div>
+            </li>
+            <li>
+                <img src="">
+                <div class="informacao-contato">
+                    <div class="nome"></div>
+                    <div class="descricao"></div>
+                </div>
+            </li>
+            <li>
+                <img src="">
+                <div class="informacao-contato">
+                    <div class="nome"></div>
+                    <div class="descricao"></div>
+                </div>
+            </li>
+            <li>
+                <img src="">
+                <div class="informacao-contato">
+                    <div class="nome"></div>
+                    <div class="descricao"></div>
+                </div>
+            </li>
+            <li>
+                <img src="">
+                <div class="informacao-contato">
+                    <div class="nome"></div>
+                    <div class="descricao"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    const caminhoImagens = './assets';
+    const contatos = [{
+        mensagens: 1024,
+        nome: 'Mãe ❤',
+        descricao: 'O Senhor é o meu pastor; de nada me faltará. (Salmos 23:1) 🙏🙏',
+        imagem: `${caminhoImagens}/alice.jpg`
+    }, {
+        mensagens: 645,
+        nome: 'Tio Omar',
+        descricao: 'Disponível',
+        imagem: `${caminhoImagens}/omar.jpg`
+    }, {
+        mensagens: 877,
+        nome: 'Irene RH',
+        descricao: 'Olá! Eu estou usando o WhatsApp.',
+        imagem: `${caminhoImagens}/irene.jpg`
+    }, {
+        mensagens: 30,
+        nome: 'Otavio Carona',
+        descricao: '',
+        imagem: `${caminhoImagens}/otavio.jpg`
+    }, {
+        mensagens: 190,
+        nome: 'Isaura',
+        descricao: '🌞',
+        imagem: `${caminhoImagens}/isaura.jpg`
+    }, {
+        mensagens: 249,
+        nome: 'Assistência Técnica',
+        descricao: 'Horário de atendimento 08:00 - 17:30',
+        imagem: `${caminhoImagens}/tiago.jpg`
+    }, {
+        mensagens: 581,
+        nome: 'Lurdes ONG animais',
+        descricao: '🐱🐶',
+        imagem: `${caminhoImagens}/lurdes.jpg`
+    }];
+
+    function compare(a, b) {
+        if (a.mensagens < b.mensagens) return 1;
+        if (a.mensagens > b.mensagens) return -1;
+        return 0;
+    }
+
+    const novoArray = contatos.slice(0, 5);
+
+    const itemsDaLista = document.querySelectorAll('li');
+
+    function addContatos() {
+        for (let i = 0; i < novoArray.length; i++) {
+            const img = itemsDaLista[i].querySelector("img");
+            const nome = itemsDaLista[i].querySelector('.nome');
+            const descricao = itemsDaLista[i].querySelector('.descricao');
+
+            img.src = novoArray[i].imagem;
+            nome.textContent = novoArray[i].nome;
+            descricao.textContent = novoArray[i].descricao;
+        }
+    }
+    addContatos();
+
+</script>
+
+</html>
